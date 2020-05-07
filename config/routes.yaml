@@ -14,3 +14,19 @@ dashboard:
 addProject:
     path: /admin/addProject
     controller: App\Controller\DashboardController::addProjectAction
+
+projectAdmin:
+    path: /admin/project
+    controller: App\Controller\DashboardController::projectAction
+
+modProject:
+    path: /admin/{id}/modProject
+    controller: App\Controller\DashboardController::modProjectAction
+
+supProject:
+    path: /admin/{id}/supProject
+    controller: App\Controller\DashboardController::suppProjectAction
+
+skillAdmin:
+    path: /admin/skill
+    controller: App\Controller\DashboardController::skillAction

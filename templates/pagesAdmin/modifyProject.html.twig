@@ -1,0 +1,15 @@
+{% extends '/componentsAdmin/baseAdmin.html.twig' %}
+
+{% block body %}
+<div class="col-9">
+
+
+    <div>
+    {% form_theme projectForm 'bootstrap_4_horizontal_layout.html.twig' %} 
+    {{ form_start(projectForm) }}
+    
+    {{ form_end(projectForm) }}
+    </div> 
+
+
+{% endblock %}

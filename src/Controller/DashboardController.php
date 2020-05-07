@@ -13,7 +13,7 @@ class DashboardController extends AbstractController
     public function boardAction(SkillRepository $skillRepository)
     {
         $skills = $skillRepository->findAll() ;
-        return $this->render('/componentsAdmin/dashboard.html.twig', ["skills" => $skills]);
+        return $this->render('/componentsAdmin/baseAdmin.html.twig', ["skills" => $skills]);
         
         
     }
@@ -36,13 +36,51 @@ class DashboardController extends AbstractController
             //j'exécute la sauvegarde de mon entity job
             $manager->flush();
             //je redirige vers la route de mon choix (dans ce cas, c'est la route qui a le nom 'project')
-            return $this->redirectToRoute('project');
+            return $this->redirectToRoute('dashboard');
         }
 
 
         return $this->render('/pagesAdmin/addProject.html.twig', ["projects" => $projects,"projectForm"=>$formProject->createView()]);
         
     }
+    public function projectAction(Request $request, ProjectRepository $projectRepository)
+    {
+        $projects = $projectRepository->findAll() ;
+
+        
+
+        return $this->render('/pagesAdmin/projectAdmin.html.twig', ["projects" => $projects]);
+        
+    }
 
 
+    public function modProjectAction(Request $request, ProjectRepository $projectRepository, $id)
+    {
+        $project = $projectRepository->find($id);
+
+        $form = $this->createForm('App\Form\ProjectType',$project);
+        $form->handleRequest($request);
+        if($form->isSubmitted()){
+            $project = $form->getData();
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($project);
+            $manager->flush();
+            return $this->redirectToRoute('dashboard');
+        }
+    return $this->render('pagesAdmin/modifyProject.html.twig', ["projectForm"=>$form->createView()]);
+
+    }
+    public function suppProjectAction(Request $request, ProjectRepository $projectRepository, $id)
+    {
+        $project = $projectRepository->find($id);
+        $this->getDoctrine()->getManager()->remove($project);
+        $this->getDoctrine()->getManager()->flush();
+        return $this->redirectToRoute('projectAdmin');
+    }
+    public function skillAction(SkillRepository $skillRepository)
+    {
+        $skills = $skillRepository->findAll() ;
+        return $this->render('pagesAdmin/skillAdmin.html.twig', ["skills" => $skills]);
+        
+    }
 }

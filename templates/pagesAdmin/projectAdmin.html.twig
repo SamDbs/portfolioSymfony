@@ -1,0 +1,34 @@
+{% extends '/componentsAdmin/baseAdmin.html.twig' %}
+
+{% block body %}
+<div class="col-9">
+
+
+ <table class="table">
+        <tbody>
+            <thead>
+                <th></th>
+                <th></th>
+                <th>Titre du projet</th>
+                <th>Description</th>
+                <th>Image</th>
+
+
+
+
+            </thead>
+                {% for project in projects %}
+            <tr>
+                <td><a class="ul" href="{{ path('modProject', {"id" : project.id}) }}">Modifier</a></td>
+                <td><a class="ul" href="{{ path('supProject', {"id" : project.id}) }}">Supprimer</a></td>
+                <td>{{ project.name  }}</td>
+                <td>{{ project.description  }}</td>
+                <td><img src="{{ project.image }}" alt="" style="width:20em"></td>
+           </tr>
+               {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
