@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
+{% include './componentsCli/head.html.twig'%}
+
+{% if app.request.get('_route') == 'dashboard' or app.request.get('_route') == 'addProject' %}
+{% else %}
+   {% include './componentsCli/navbar.html.twig' %}
+{% endif %}
+
+
+        {% block titre %}{% endblock %}
         {% block body %}{% endblock %}
+        {% include './componentsCli/footer.html.twig' %}
         {% block javascripts %}{% endblock %}
+        
     </body>
 </html>

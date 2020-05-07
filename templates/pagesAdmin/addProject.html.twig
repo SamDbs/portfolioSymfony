@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h2>Ajouter un projet :</h2>
+
+
+    <div>
+    {% form_theme projectForm 'bootstrap_4_horizontal_layout.html.twig' %} 
+    {{ form_start(projectForm) }}
+    {# <h3>{{ form_label(projectForm.name,null, {'label_attr': {'class': 'red-bg', 'id': 'testID', 'style': 'color : red'} }) }}</h3>
+
+    <p>{{ form_widget(projectForm.name, {'attr': {'placeholder': 'Nom du projet'}}) }}</p>
+
+    {{ form_label(projectForm.description,null, {'label_attr': {'class': 'red-bg', 'id': 'testID', 'style': 'color : red'} }) }}
+
+      <p>{{ form_widget(projectForm.description, {'attr': {'placeholder': 'Description du projet'}}) }}</p> #}
+    {{ form_end(projectForm) }}
+    </div>
+
+
+{% endblock %}

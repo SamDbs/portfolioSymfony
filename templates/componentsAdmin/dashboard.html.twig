@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="d-flex monDashboard" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right " id="sidebar-wrapper" style="height: 20%;">
+      <div class="sidebar-heading text-center ">Welcome </div>
+      <div class="list-group list-group-flush ">
+        <a href="{{path('dashboard')}}" class="list-group-item list-group-item-action bg-light d-flex justify-content-center "><i class="fas fa-home"></i></a>
+        <a class="list-group-item list-group-item-action bg-light" href="{{path('home')}}">Portfolio</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Mes projets</a>
+        <ul class="ulDashboard">
+          <a class="ul" href="{{ path('addProject') }}"><li>ajouter un projet</li></a>
+          <a href="#"><li>supprimer un projet</li></a>
+        </ul>
+        <a href="#" class="list-group-item list-group-item-action bg-light"> Mes compétences</a>
+        <ul class="ulDashboard">
+          <a class="ul" href=""><li>ajouter une compétence</li></a>
+          <a href="#"><li>supprimer une compétence</li></a>
+        </ul>
+        <div> 
+        
+
+      </div>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Statistiques du site</a>
+        <a class="dropdown-item " href="" > <i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content" class="monDashboard">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <div class="titleDashboard">DASHBOARD</div>
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown">
+              
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+{# require des pages skillAdmin et projectAdmin  #}
+{% if app.request.get('_route') == 'addProject' %}
+    {% include './pagesAdmin/addProject.html.twig' %}
+{% endif %}
+{% endblock %}

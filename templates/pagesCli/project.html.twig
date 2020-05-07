@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>Page Projets</h1>
+
+{% for project in projects %}
+    <div> 
+    {{ project.name  }}
+    {{ project.description }}
+
+    <a href="http://samantha-dubois-portfolio.epizy.com/?i=1" >  <img src="{{ project.image }}" alt="" style="width:30em"></a>
+
+{% endfor %}
+    </div>
+{% endblock %}

@@ -1,3 +1,16 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+home:
+    path: /
+    controller: App\Controller\DefaultController::indexAction
+
+project:
+    path: /project
+    controller: App\Controller\ProjectController::projectAction
+
+
+dashboard:
+    path: /admin/dashboard
+    controller: App\Controller\DashboardController::boardAction
+
+addProject:
+    path: /admin/addProject
+    controller: App\Controller\DashboardController::addProjectAction
