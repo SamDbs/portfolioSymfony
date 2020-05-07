@@ -30,3 +30,11 @@ supProject:
 skillAdmin:
     path: /admin/skill
     controller: App\Controller\DashboardController::skillAction
+
+addSkill:
+    path: /admin/addSkill
+    controller: App\Controller\DashboardController::addSkillAction
+
+modSkill:
+    path: /admin/{id}/modSkill
+    controller: App\Controller\DashboardController::modSkillAction

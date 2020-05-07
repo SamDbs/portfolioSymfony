@@ -3,9 +3,13 @@
 namespace App\Form;
 
 use App\Entity\Skill;
+use App\Entity\Project;
+use App\Entity\Techno;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class SkillType extends AbstractType
 {
@@ -15,8 +19,9 @@ class SkillType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('image')
-            ->add('techno')
-            ->add('projects')
+            ->add('techno', EntityType::class, ['class' => Techno::class, 'multiple'=>false, 'expanded' => true, 'choice_label' => 'name'])
+            ->add('projects', EntityType::class, ['class' => Project::class, 'multiple'=>true, 'expanded' => true, 'choice_label' => 'name'])
+            ->add('save', SubmitType::class);
         ;
     }
 

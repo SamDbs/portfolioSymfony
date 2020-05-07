@@ -30,10 +30,24 @@
         <a class="ul" href="{{ path('skillAdmin') }}">
           <li>Afficher les compétences</li>
         </a>
-        <a class="ul" href=""><li>ajouter une compétence</li></a>
+        <a class="ul" href="{{ path('addSkill') }}">
+          <li>ajouter une compétence</li>
+        </a>
         <a href="#"><li>supprimer une compétence</li></a>
       </ul>
-      <div></div>
+      <a href="#"
+        class="text-center list-group-item list-group-item-action bg-light">
+        Mes compétences
+      </a>
+      <ul class="ulDashboard">
+        <a class="ul" href="{{ path('skillAdmin') }}">
+          <li>Afficher les compétences</li>
+        </a>
+        <a class="ul" href="{{ path('addSkill') }}">
+          <li>ajouter une compétence</li>
+        </a>
+        <a href="#"><li>supprimer une compétence</li></a>
+      </ul>
       <a href="#"
         class="text-center list-group-item list-group-item-action bg-light">
         Statistiques du site

@@ -15,7 +15,7 @@
             </thead>
                 {% for skill in skills %}
             <tr >
-                <td class="pt-4"><a class="ul" href="{{ path('modProject', {"id" : skill.id}) }}">Modifier</a></td>
+                <td class="pt-4"><a class="ul" href="{{ path('modSkill', {"id" : skill.id}) }}">Modifier</a></td>
                 <td class="pt-4"><a class="ul" href="{{ path('supProject', {"id" : skill.id}) }}">Supprimer</a></td>
                 <td  class="pt-4">{{ skill.name  }}</td>
                 <td  class="pt-4"><img src="{{ skill.image }}" alt="" style="width:5em"></td>

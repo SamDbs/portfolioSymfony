@@ -1,0 +1,17 @@
+{% extends '/componentsAdmin/baseAdmin.html.twig' %}
+
+{% block body %}
+<div class="col-9">
+<h2>Ajouter un skill :</h2>
+
+
+    <div>
+    {% form_theme formSkill 'bootstrap_4_horizontal_layout.html.twig' %} 
+    {{ form_start(formSkill) }}
+
+    {{ form_end(formSkill) }}
+    </div>
+
+</div>
+
+{% endblock %}

@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\SkillRepository;
 use App\Repository\ProjectRepository;
 use App\Entity\Project;
+use App\Entity\Skill;
 use Symfony\Component\HttpFoundation\Request;
 
 class DashboardController extends AbstractController
@@ -17,6 +18,17 @@ class DashboardController extends AbstractController
         
         
     }
+
+    public function projectAction(Request $request, ProjectRepository $projectRepository)
+    {
+        $projects = $projectRepository->findAll() ;
+
+        
+
+        return $this->render('/pagesAdmin/projectAdmin.html.twig', ["projects" => $projects]);
+        
+    }
+
     public function addProjectAction(Request $request, ProjectRepository $projectRepository)
     {
         $projects = $projectRepository->findAll() ;
@@ -43,15 +55,6 @@ class DashboardController extends AbstractController
         return $this->render('/pagesAdmin/addProject.html.twig', ["projects" => $projects,"projectForm"=>$formProject->createView()]);
         
     }
-    public function projectAction(Request $request, ProjectRepository $projectRepository)
-    {
-        $projects = $projectRepository->findAll() ;
-
-        
-
-        return $this->render('/pagesAdmin/projectAdmin.html.twig', ["projects" => $projects]);
-        
-    }
 
 
     public function modProjectAction(Request $request, ProjectRepository $projectRepository, $id)
@@ -70,6 +73,7 @@ class DashboardController extends AbstractController
     return $this->render('pagesAdmin/modifyProject.html.twig', ["projectForm"=>$form->createView()]);
 
     }
+
     public function suppProjectAction(Request $request, ProjectRepository $projectRepository, $id)
     {
         $project = $projectRepository->find($id);
@@ -77,10 +81,50 @@ class DashboardController extends AbstractController
         $this->getDoctrine()->getManager()->flush();
         return $this->redirectToRoute('projectAdmin');
     }
-    public function skillAction(SkillRepository $skillRepository)
+
+    public function skillAction(Request $request, SkillRepository $skillRepository)
     {
         $skills = $skillRepository->findAll() ;
         return $this->render('pagesAdmin/skillAdmin.html.twig', ["skills" => $skills]);
         
     }
+    
+    public function addSkillAction(Request $request, SkillRepository $skillRepository)
+    {
+        $skills = $skillRepository->findAll() ;
+
+        $skill = new Skill();
+        $formSkill = $this->createForm('App\Form\SkillType', $skill);
+
+        $formSkill->handleRequest($request);
+
+        if($formSkill->isSubmitted()){
+            $skill = $formSkill->getData();
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($skill);
+            $manager->flush();
+            return $this->redirectToRoute('skillAdmin');
+        }
+
+
+        return $this->render('/pagesAdmin/addSkill.html.twig', ["skills" => $skills,"formSkill"=>$formSkill->createView()]);
+    }
+
+    public function modSkillAction(Request $request, SkillRepository $skillRepository, $id)
+    {
+        $skills = $skillRepository->find($id) ;
+
+        $form = $this->createForm('App\Form\SkillType',$skills);
+        $form->handleRequest($request);
+        if($form->isSubmitted()){
+            $skill = $form->getData();
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($skill);
+            $manager->flush();
+            return $this->redirectToRoute('skillAdmin');
+        }
+    return $this->render('pagesAdmin/modifySkill.html.twig', ["formSkill"=>$form->createView()]);
+    }
+
+
 }
