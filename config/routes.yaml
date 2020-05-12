@@ -45,16 +45,20 @@ supSkill:
 
 technoAdmin:
     path: /admin/technoAdmin
-    controller: App\Controller\Admin\TechnoController:technoAction
+    controller: App\Controller\Admin\TechnoController::technoAction
 
 addTechno:
     path: /admin/addTechno
-    controller: App\Controller\Admin\TechnoController:addTechnoAction
+    controller: App\Controller\Admin\TechnoController::addTechnoAction
 
 modTechno:
     path: /admin/{id}/modTechno
-    controller: App\Controller\Admin\TechnoController:modTechnoAction
+    controller: App\Controller\Admin\TechnoController::modTechnoAction
 
 supTechno:
     path: /admin/{id}/supTechno
-    controller: App\Controller\Admin\TechnoController:supTechnoAction
+    controller: App\Controller\Admin\TechnoController::supTechnoAction
+
+login:
+    path: /login
+    controller: App\Controller\SecurityController::login
