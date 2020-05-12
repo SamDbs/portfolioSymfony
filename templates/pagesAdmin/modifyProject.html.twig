@@ -7,7 +7,18 @@
     <div>
     {% form_theme projectForm 'bootstrap_4_horizontal_layout.html.twig' %} 
     {{ form_start(projectForm) }}
-    
+    {{ form_label(projectForm.name, null,  {'label_attr' : {'class' : 'text-golden pr-3'}}) }}
+        {{ form_widget(projectForm.name , { 'attr': { 'class' : 'bg-light rounded shadow p-2'}}) }}
+
+        {{ form_label(projectForm.description, null,  {'label_attr' : {'class' : 'w-2/8 text-golden pr-3'}}) }}
+        {{ form_widget(projectForm.description , { 'attr': { 'class' : 'w-full bg-light rounded shadow'}}) }}
+
+        {{ form_label(projectForm.skill, null,  {'label_attr' : {'class' : 'text-golden pr-3'}}) }}
+        {{ form_widget(projectForm.skill , { 'attr': { 'class' : 'bg-light rounded shadow p-2'}}) }}
+
+         {{ form_widget(projectForm.image , { 'attr': { 'class' : 'hidden image-input' }}) }}
+
+         {{ form_widget(projectForm.save, {'attr': {'class' : 'button button-dark' }}) }}
     {{ form_end(projectForm) }}
     </div> 
 

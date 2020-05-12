@@ -1,0 +1,24 @@
+{% extends '/componentsAdmin/baseAdmin.html.twig' %}
+
+{% block body %}
+<div class="col-9">
+
+
+    <div>
+    {% form_theme formTechno 'bootstrap_4_horizontal_layout.html.twig' %} 
+    {{ form_start(formTechno) }}
+        
+        {{ form_label(formTechno.name, null,  {'label_attr' : {'class' : 'text-golden pr-3'}}) }}
+        {{ form_widget(formTechno.name , { 'attr': { 'class' : 'bg-light rounded shadow p-2'}}) }}
+
+        {{ form_label(formTechno.category, null,  {'label_attr' : {'class' : 'text-golden pr-3'}}) }}
+        {{ form_widget(formTechno.category , { 'attr': { 'class' : 'bg-light rounded shadow p-2'}}) }}
+
+
+         {{ form_widget(formTechno.image , { 'attr': { 'class' : 'hidden image-input' }}) }}
+
+    {{ form_end(formSkill) }}
+    </div> 
+
+
+{% endblock %}

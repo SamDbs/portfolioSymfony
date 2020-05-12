@@ -1,0 +1,32 @@
+{% extends '/componentsAdmin/baseAdmin.html.twig' %}
+
+{% block body %}
+<div class="col-9">
+
+
+ <table class="table">
+        <tbody>
+            <thead>
+                <th></th>
+                <th></th>
+                <th>Nom de la techno</th>
+                <th>Image</th>
+
+
+
+
+            </thead>
+                {% for techno in technos %}
+            <tr>
+                <td><a class="ul" href="{{ path('modTechno', {"id" : techno.id}) }}">Modifier</a></td>
+                <td><a class="ul" href="{{ path('supTechno', {"id" : techno.id}) }}">Supprimer</a></td>
+                <td>{{ techno.name  }}</td>
+                <td><img src="{{ techno.image }}" alt="" style="width:20em"></td>
+           </tr>
+               {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

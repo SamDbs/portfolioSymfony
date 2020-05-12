@@ -9,6 +9,20 @@
     {% form_theme formSkill 'bootstrap_4_horizontal_layout.html.twig' %} 
     {{ form_start(formSkill) }}
 
+
+        {{ form_label(formSkill.name, null,  {'label_attr' : {'class' : 'text-golden pr-3'}}) }}
+        {{ form_widget(formSkill.name , { 'attr': { 'class' : 'bg-light rounded shadow p-2'}}) }}
+
+        {{ form_label(formSkill.description, null,  {'label_attr' : {'class' : 'w-2/8 text-golden pr-3'}}) }}
+        {{ form_widget(formSkill.description , { 'attr': { 'class' : 'w-full bg-light rounded shadow'}}) }}
+
+        {{ form_label(formSkill.techno, null,  {'label_attr' : {'class' : 'text-golden pr-3'}}) }}
+        {{ form_widget(formSkill.techno , { 'attr': { 'class' : 'bg-light rounded shadow p-2'}}) }}
+
+        {{ form_label(formSkill.projects, null,  {'label_attr' : {'class' : 'text-golden pr-3'}}) }}
+        {{ form_widget(formSkill.projects , { 'attr': { 'class' : 'bg-light rounded shadow p-2'}}) }}
+
+         {{ form_widget(formSkill.image , { 'attr': { 'class' : 'hidden image-input' }}) }}
     {{ form_end(formSkill) }}
     </div>
 

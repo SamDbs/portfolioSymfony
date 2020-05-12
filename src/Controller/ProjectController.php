@@ -13,7 +13,6 @@ class ProjectController extends AbstractController
     {
         $projects = $projectRepository->findAll() ;
 
-        
 
         return $this->render('/pagesCli/project.html.twig', ["projects" => $projects]);
         

@@ -9,32 +9,52 @@ project:
 
 dashboard:
     path: /admin/dashboard
-    controller: App\Controller\DashboardController::boardAction
+    controller: App\Controller\Admin\DashboardController::boardAction
 
 addProject:
     path: /admin/addProject
-    controller: App\Controller\DashboardController::addProjectAction
+    controller: App\Controller\Admin\DashboardController::addProjectAction
 
 projectAdmin:
     path: /admin/project
-    controller: App\Controller\DashboardController::projectAction
+    controller: App\Controller\Admin\DashboardController::projectAction
 
 modProject:
     path: /admin/{id}/modProject
-    controller: App\Controller\DashboardController::modProjectAction
+    controller: App\Controller\Admin\DashboardController::modProjectAction
 
 supProject:
     path: /admin/{id}/supProject
-    controller: App\Controller\DashboardController::suppProjectAction
+    controller: App\Controller\Admin\DashboardController::suppProjectAction
 
 skillAdmin:
     path: /admin/skill
-    controller: App\Controller\DashboardController::skillAction
+    controller: App\Controller\Admin\DashboardController::skillAction
 
 addSkill:
     path: /admin/addSkill
-    controller: App\Controller\DashboardController::addSkillAction
+    controller: App\Controller\Admin\DashboardController::addSkillAction
 
 modSkill:
     path: /admin/{id}/modSkill
-    controller: App\Controller\DashboardController::modSkillAction
+    controller: App\Controller\Admin\DashboardController::modSkillAction
+
+supSkill:
+    path: /admin/{id}/supSkill
+    controller: App\Controller\Admin\DashboardController::supSkillAction
+
+technoAdmin:
+    path: /admin/technoAdmin
+    controller: App\Controller\Admin\TechnoController:technoAction
+
+addTechno:
+    path: /admin/addTechno
+    controller: App\Controller\Admin\TechnoController:addTechnoAction
+
+modTechno:
+    path: /admin/{id}/modTechno
+    controller: App\Controller\Admin\TechnoController:modTechnoAction
+
+supTechno:
+    path: /admin/{id}/supTechno
+    controller: App\Controller\Admin\TechnoController:supTechnoAction
